@@ -26,12 +26,20 @@ module.exports = function(grunt) {
         },
         jsonlint: {
             all: ["src/**/*.json"]
+        },
+        connect: {
+          server: {
+            options: {
+              port: 8081
+            }
+          }
         }
     });
 
     // Load the plugin(s):
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-jsonlint");
+    grunt.loadNpmTasks("grunt-contrib-connect");
 
     // Custom tasks:
     grunt.registerTask("lint", "Apply jshint and jsonlint", ["jshint", "jsonlint"]);
